@@ -1,0 +1,30 @@
+# [Root .gitignore]
+
+# Dependencies
+node_modules/
+target/
+.mvn/
+bin/
+*.class
+
+# Environment
+.env*
+!.env.production
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# AI Models & Data (Optionally ignore large .pt files if you want to use HF's own models)
+# *.pt
+# *.zip
+dataset/
+
+# Build artifacts
+dist/
+build/
+app.jar
+*.log
