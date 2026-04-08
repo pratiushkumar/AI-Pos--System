@@ -41,7 +41,7 @@ public class VisionModelController {
     @PreAuthorize("hasAuthority('ROLE_STORE_ADMIN')")
     public ResponseEntity<String> uploadTrainingImages(
             @PathVariable Long productId,
-            @RequestParam("files") MultipartFile[] files) throws IOException {
+            @RequestParam("files") MultipartFile[] files) throws IOException, com.zosh.exception.UserException {
         
         User user = userService.getCurrentUser();
         Store store = storeService.findByStoreAdminId(user.getId());
@@ -70,7 +70,7 @@ public class VisionModelController {
      */
     @PostMapping("/train")
     @PreAuthorize("hasAuthority('ROLE_STORE_ADMIN')")
-    public ResponseEntity<String> triggerTraining() {
+    public ResponseEntity<String> triggerTraining() throws com.zosh.exception.UserException {
         User user = userService.getCurrentUser();
         Store store = storeService.findByStoreAdminId(user.getId());
 
@@ -89,7 +89,7 @@ public class VisionModelController {
      */
     @GetMapping("/model-status")
     @PreAuthorize("hasAuthority('ROLE_STORE_ADMIN')")
-    public ResponseEntity<String> getModelStatus() {
+    public ResponseEntity<String> getModelStatus() throws com.zosh.exception.UserException {
         User user = userService.getCurrentUser();
         Store store = storeService.findByStoreAdminId(user.getId());
         

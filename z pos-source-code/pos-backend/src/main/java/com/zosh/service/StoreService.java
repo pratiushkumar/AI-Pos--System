@@ -23,6 +23,7 @@ public interface StoreService {
     List<UserDTO> getEmployeesByStore(Long storeId) throws UserException;
 
     StoreDTO moderateStore(Long storeId, StoreStatus action) throws ResourceNotFoundException;
+    Store findByStoreAdminId(Long id);
 
 }
 

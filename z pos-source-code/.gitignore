@@ -2,7 +2,7 @@
 
 # Dependencies
 node_modules/
-target/
+# target/  <-- Commented out so we can push the JAR for free tier deployment
 .mvn/
 bin/
 *.class

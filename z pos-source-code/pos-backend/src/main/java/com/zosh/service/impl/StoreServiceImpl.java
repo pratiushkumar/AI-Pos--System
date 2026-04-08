@@ -175,10 +175,14 @@ public class StoreServiceImpl implements StoreService {
         Store store = storeRepository.findById(storeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Store not found with id: " + storeId));
 
-      store.setStatus(action);
+        store.setStatus(action);
         Store updatedStore = storeRepository.save(store);
         return StoreMapper.toDto(updatedStore);
     }
 
+    @Override
+    public Store findByStoreAdminId(Long id) {
+        return storeRepository.findByStoreAdminId(id);
+    }
 
 }

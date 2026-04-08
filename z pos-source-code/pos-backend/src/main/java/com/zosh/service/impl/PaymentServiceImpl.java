@@ -9,6 +9,7 @@ import com.zosh.event.publisher.PaymentEventPublisher;
 import com.zosh.exception.PaymentException;
 import com.zosh.exception.UserException;
 import com.zosh.mapper.PaymentMapper;
+import com.zosh.modal.Order;
 import com.zosh.modal.Payment;
 import com.zosh.modal.Store;
 import com.zosh.modal.Subscription;
@@ -18,6 +19,7 @@ import com.zosh.payload.request.PaymentInitiateRequest;
 import com.zosh.payload.request.PaymentVerifyRequest;
 import com.zosh.payload.response.PaymentInitiateResponse;
 import com.zosh.payload.response.PaymentLinkResponse;
+import com.zosh.repository.OrderRepository;
 import com.zosh.repository.PaymentRepository;
 import com.zosh.repository.StoreRepository;
 import com.zosh.repository.SubscriptionRepository;
@@ -47,6 +49,7 @@ public class PaymentServiceImpl implements PaymentService {
     private final PaymentEventPublisher paymentEventPublisher;
     private final StoreRepository storeRepository;
     private final SubscriptionRepository subscriptionRepository;
+    private final OrderRepository orderRepository;
 
 
     @Override
