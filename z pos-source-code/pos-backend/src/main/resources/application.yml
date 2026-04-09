@@ -53,7 +53,7 @@ spring:
 
   ai:
     google:
-      api-key: ${SPRING_AI_GOOGLE_API_KEY}
+      api-key: ${SPRING_AI_GOOGLE_API_KEY:}
 
 server:
   port: 5000
