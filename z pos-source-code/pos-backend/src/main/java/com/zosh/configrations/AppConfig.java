@@ -14,4 +14,9 @@ public class AppConfig {
         return new RestTemplate();
     }
 
+    @Bean
+    public okhttp3.OkHttpClient okHttpClient() {
+        return new okhttp3.OkHttpClient();
+    }
+
 }
