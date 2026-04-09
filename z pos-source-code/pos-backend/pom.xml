@@ -184,7 +184,7 @@
                 <version>3.4.4</version>
                 <configuration>
                     <to>
-                        <image>zosh/pos:v1</image>
+                        <image>patty/pos:v1</image>
                     </to>
                 </configuration>
             </plugin>

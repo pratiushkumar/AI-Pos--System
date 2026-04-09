@@ -37,7 +37,7 @@ const Header = () => {
                 <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
                   <ShoppingCart className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Pos ai</span>
+                <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Patty POS</span>
               </div>
             </div>
 
