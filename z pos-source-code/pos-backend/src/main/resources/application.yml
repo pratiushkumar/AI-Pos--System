@@ -15,9 +15,9 @@ spring:
             client-secret: ${GITHUB_CLIENT_SECRET:YOUR_GITHUB_SECRET}
 
   datasource:
-    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&allowPublicKeyRetrieval=true
+    url: ${DB_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${DB_USERNAME}
+    username: ${DB_USER}
     password: ${DB_PASSWORD}
 
   jpa:
