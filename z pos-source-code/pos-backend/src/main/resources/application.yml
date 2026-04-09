@@ -15,12 +15,13 @@ spring:
             client-secret: ${GITHUB_CLIENT_SECRET:YOUR_GITHUB_SECRET}
 
   datasource:
-    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:pos}
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${DB_USERNAME:root}
-    password: "${DB_PASSWORD:Bigbro90$.}"
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
   jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
     show-sql: true
@@ -52,7 +53,7 @@ spring:
 
   ai:
     google:
-      api-key: AIzaSyBqWTxBWImQCfLpozgkJVv3-yw9djAc2So  # Optional: Get free key at https://aistudio.google.com/app/apikey
+      api-key: ${SPRING_AI_GOOGLE_API_KEY}
 
 server:
   port: 5000

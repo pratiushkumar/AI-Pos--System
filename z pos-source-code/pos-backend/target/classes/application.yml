@@ -1,0 +1,77 @@
+spring:
+  application:
+    name: pos-system
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:YOUR_GOOGLE_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET:YOUR_GOOGLE_SECRET}
+            scope: profile, email
+          github:
+            client-id: ${GITHUB_CLIENT_ID:YOUR_GITHUB_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET:YOUR_GITHUB_SECRET}
+
+  datasource:
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: pratiusht81300@gmail.com
+    password: ${EMAIL_PASSWORD:YOUR_EMAIL_PASS}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  devtools:
+    livereload:
+      enabled: true
+
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.model.openai.autoconfigure.OpenAiChatAutoConfiguration
+      - org.springframework.ai.model.openai.autoconfigure.OpenAiEmbeddingAutoConfiguration
+      - org.springframework.ai.model.openai.autoconfigure.OpenAiImageAutoConfiguration
+      - org.springframework.ai.model.openai.autoconfigure.OpenAiAudioTranscriptionAutoConfiguration
+      - org.springframework.ai.model.openai.autoconfigure.OpenAiAudioSpeechAutoConfiguration
+      - org.springframework.ai.model.openai.autoconfigure.OpenAiModerationAutoConfiguration
+
+  ai:
+    google:
+      api-key: ${SPRING_AI_GOOGLE_API_KEY}
+
+server:
+  port: 5000
+
+cashfree:
+  api:
+    key: ${CASHFREE_API_KEY:YOUR_CASHFREE_KEY}
+    secret: ${CASHFREE_API_SECRET:YOUR_CASHFREE_SECRET}
+
+app:
+  frontend:
+    reset-url: http://localhost:5173/auth/reset-password?token=
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: TRACE
