@@ -41,7 +41,8 @@ const keyFeatures=[
 
 const KeyFeaturesSection = () => {
   return (
-    <section id="features" className="py-16 bg-muted/50">
+    <section id="features" className="py-24 bg-background relative">
+      <div className="absolute inset-0 bg-primary/[0.02] -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

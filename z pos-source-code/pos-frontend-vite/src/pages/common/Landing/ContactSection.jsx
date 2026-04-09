@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle } from 'lucide-reac
 
 const ContactSection = ({ id }) => {
   return (
-    <section id={id} className="py-16 bg-gradient-to-br from-primary to-primary-dark text-white overflow-hidden relative">
+    <section id={id} className="py-16 bg-[#facc15] text-[#422006] overflow-hidden relative">
       {/* Background Pattern */}
       <div className="absolute inset-0 z-0 opacity-10">
         <div className="grid grid-cols-10 h-full">
@@ -105,7 +105,7 @@ const ContactSection = ({ id }) => {
           
           {/* Right Side - Contact Info */}
           <div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 shadow-lg mb-8">
+            <div className="bg-black/5 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-black/10 mb-8">
               <h3 className="text-2xl font-bold mb-6">Contact US</h3>
               
               <div className="space-y-6">
@@ -157,19 +157,19 @@ const ContactSection = ({ id }) => {
             
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <CheckCircle className="w-6 h-6 text-white flex-shrink-0" />
+                <CheckCircle className="w-6 h-6 text-[#422006] flex-shrink-0" />
                 <span>Free personalized demo</span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="w-6 h-6 text-white flex-shrink-0" />
+                <CheckCircle className="w-6 h-6 text-[#422006] flex-shrink-0" />
                 <span>14-day free trial with full features</span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="w-6 h-6 text-white flex-shrink-0" />
+                <CheckCircle className="w-6 h-6 text-[#422006] flex-shrink-0" />
                 <span>Dedicated onboarding specialist</span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="w-6 h-6 text-white flex-shrink-0" />
+                <CheckCircle className="w-6 h-6 text-[#422006] flex-shrink-0" />
                 <span>24/7 customer support</span>
               </div>
             </div>

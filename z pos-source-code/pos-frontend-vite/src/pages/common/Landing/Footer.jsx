@@ -1,12 +1,31 @@
-import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, ArrowRight, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+
+    setLoading(true);
+    // Simulate API call
+    setTimeout(() => {
+      setLoading(false);
+      toast.success('Thank you for subscribing to our newsletter!');
+      setEmail('');
+    }, 1500);
+  };
   
   return (
-    <footer className="bg-card text-card-foreground border-t">
+    <footer className="bg-[#ecfccb] text-[#365314] border-t border-lime-200">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -43,16 +62,23 @@ const Footer = () => {
             {/* Newsletter */}
             <div>
               <h4 className="text-foreground font-medium mb-3">Subscribe to our newsletter</h4>
-              <div className="flex">
+              <form onSubmit={handleSubscribe} className="flex">
                 <input 
                   type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email address" 
                   className="bg-background text-foreground px-4 py-2 rounded-l-md focus:outline-none focus:ring-1 focus:ring-primary flex-grow border border-input"
+                  required
                 />
-                <Button className="rounded-l-none">
-                  <ArrowRight className="h-4 w-4" />
+                <Button 
+                  type="submit" 
+                  disabled={loading}
+                  className="rounded-l-none"
+                >
+                  {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
                 </Button>
-              </div>
+              </form>
             </div>
           </div>
           
@@ -91,11 +117,11 @@ const Footer = () => {
                 <span className="text-muted-foreground">support@pospro.com</span>
               </li>
               <li className="text-muted-foreground">
-                <p>123 Tech Park, Whitefield</p>
-                <p>Bangalore, Karnataka 560066</p>
+                <p>123 Tech park dholakpur</p>
+                <p>Konkani karnatak </p>
               </li>
               <li className="text-muted-foreground">
-                <p>+91 98765 43210</p>
+                <p>+91 6967654849</p>
               </li>
             </ul>
           </div>
