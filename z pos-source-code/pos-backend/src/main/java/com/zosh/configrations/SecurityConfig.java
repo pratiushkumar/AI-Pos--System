@@ -57,9 +57,10 @@ public class SecurityConfig {
 			public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
 				CorsConfiguration cfg = new CorsConfiguration();
 				cfg.setAllowedOriginPatterns(Arrays.asList(
-						"http://localhost:3000",
 						"http://localhost:5173",
-						"https://*.vercel.app"
+						"http://localhost:3000",
+						"https://*.vercel.app",
+						"https://*.onrender.com"
 				));
 				cfg.setAllowedMethods(Collections.singletonList("*"));
 				cfg.setAllowCredentials(true);
