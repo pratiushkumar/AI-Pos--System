@@ -13,11 +13,12 @@ import {
 } from 'lucide-react'
 import { Link, useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
-import { login, sendOtp, verifyOtp, resetOtpState } from '@/Redux Toolkit/features/auth/authThunk'
+import { login, sendOtp, verifyOtp } from '@/Redux Toolkit/features/auth/authThunk'
 import { getUserProfile } from '../../../Redux Toolkit/features/user/userThunks'
 import { startShift } from '../../../Redux Toolkit/features/shiftReport/shiftReportThunks'
 import { ThemeToggle } from '../../../components/theme-toggle'
 import { forgotPassword } from '../../../Redux Toolkit/features/auth/authThunk'
+import { resetOtpState } from '../../../Redux Toolkit/features/auth/authSlice'
 import {
   InputOTP,
   InputOTPGroup,
