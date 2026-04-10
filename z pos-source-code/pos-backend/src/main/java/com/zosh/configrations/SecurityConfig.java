@@ -13,6 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -51,20 +52,19 @@ public class SecurityConfig {
 		return new BCryptPasswordEncoder();
 	}
 
-	private CorsConfigurationSource corsConfigurationSource() {
-		return new CorsConfigurationSource() {
-			@Override
-			public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
-				CorsConfiguration cfg = new CorsConfiguration();
-				cfg.setAllowedOriginPatterns(Collections.singletonList("*"));
-				cfg.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
-				cfg.setAllowCredentials(true);
-				cfg.setAllowedHeaders(Collections.singletonList("*"));
-				cfg.setExposedHeaders(Collections.singletonList("*"));
-				cfg.setMaxAge(3600L);
-				return cfg;
-			}
-		};
+	@Bean
+	public CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration cfg = new CorsConfiguration();
+		cfg.setAllowedOriginPatterns(Collections.singletonList("*"));
+		cfg.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
+		cfg.setAllowCredentials(true);
+		cfg.setAllowedHeaders(Collections.singletonList("*"));
+		cfg.setExposedHeaders(Collections.singletonList("*"));
+		cfg.setMaxAge(3600L);
+
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", cfg);
+		return source;
 	}
 
 }
