@@ -56,17 +56,11 @@ public class SecurityConfig {
 			@Override
 			public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
 				CorsConfiguration cfg = new CorsConfiguration();
-				cfg.setAllowedOrigins(Arrays.asList(
-						"http://localhost:5173",
-						"http://localhost:3000",
-						"https://ai-pos-system-cyan.vercel.app",
-						"https://ai-pos-system-28ph.vercel.app",
-						"https://ai-pos-system.vercel.app"
-				));
+				cfg.setAllowedOriginPatterns(Collections.singletonList("*"));
 				cfg.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
 				cfg.setAllowCredentials(true);
-				cfg.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Accept", "X-Requested-With"));
-				cfg.setExposedHeaders(Arrays.asList("Authorization"));
+				cfg.setAllowedHeaders(Collections.singletonList("*"));
+				cfg.setExposedHeaders(Collections.singletonList("*"));
 				cfg.setMaxAge(3600L);
 				return cfg;
 			}
