@@ -18,10 +18,10 @@ const TrustedLogos = () => {
               { 
                 name: 'SuperMart', 
                 icon: <Building2 className="w-6 h-6" />,
-                bgColor: 'bg-gradient-to-br from-emerald-500 to-emerald-600',
-                textColor: 'text-emerald-600',
-                borderColor: 'border-emerald-200',
-                shadowColor: 'shadow-emerald-100'
+                bgColor: 'bg-gradient-to-br from-orange-500 to-orange-600',
+                textColor: 'text-orange-600',
+                borderColor: 'border-orange-200',
+                shadowColor: 'shadow-orange-100'
               },
               { 
                 name: 'Fresh Grocery', 
