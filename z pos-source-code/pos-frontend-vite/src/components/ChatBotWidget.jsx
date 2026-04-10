@@ -51,7 +51,7 @@ const ChatBotWidget = () => {
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
             {isOpen && (
                 <Card className="w-80 sm:w-96 h-[500px] shadow-2xl border-primary/20 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 duration-300">
-                    <CardHeader className="bg-green-600 text-white p-4 flex flex-row items-center justify-between">
+                    <CardHeader className="bg-orange-600 text-white p-4 flex flex-row items-center justify-between">
                         <div className="flex items-center gap-2">
                             <Bot className="h-5 w-5" />
                             <CardTitle className="text-md">AI Store Assistant</CardTitle>

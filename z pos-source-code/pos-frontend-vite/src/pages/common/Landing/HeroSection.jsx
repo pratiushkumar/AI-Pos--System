@@ -37,7 +37,7 @@ const HeroSection = () => {
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
             <span 
-              className="bg-gradient-to-r from-primary to-emerald-600 bg-clip-text text-transparent animate-fade-in-up"
+              className="bg-gradient-to-r from-primary to-amber-600 bg-clip-text text-transparent animate-fade-in-up"
               style={{ animationDelay: '0.1s' }}
             >
               Powerful POS System For
@@ -47,7 +47,7 @@ const HeroSection = () => {
               text="Malls, Supermarkets & Retail Chains"
               speed={80}
               delay={1500}
-              className="text-primary bg-gradient-to-r from-primary to-emerald-600 bg-clip-text text-transparent"
+              className="text-primary bg-gradient-to-r from-primary to-amber-600 bg-clip-text text-transparent"
               showCursor={true}
               cursorBlink={true}
             />
@@ -56,8 +56,7 @@ const HeroSection = () => {
             className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in-up"
             style={{ animationDelay: '0.2s' }}
           >
-            Manage billing, inventory, staff, and reports—all in one system.
-            Streamline your operations and boost your business growth.
+            Handle payments, stock, team, and analytics—all in one place. Simplify operations and fuel business expansion 
           </p>
           
           {/* Feature Highlights */}
@@ -126,7 +125,7 @@ const HeroSection = () => {
                     autoPlay
                     controls
                     className="w-full h-full max-h-[500px] object-cover"
-                    src="https://videos.pexels.com/video-files/3970167/3970167-uhd_2560_1440_30fps.mp4"
+                    src="https://videos.pexels.com/video-files/3970167/3970167-sd_640_360_30fps.mp4"
                   ></video>
                 </div>
               </div>
@@ -138,9 +137,9 @@ const HeroSection = () => {
                   </div>
                 </div>
                 <img 
-                  src="/pos-mockup.svg" 
+                  src="https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
                   alt="POS System Interface" 
-                  className="w-full h-auto rounded-lg shadow-inner"
+                  className="w-full h-[500px] object-cover rounded-lg shadow-inner"
                 />
               </div>
             )}

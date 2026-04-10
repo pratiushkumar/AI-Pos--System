@@ -70,3 +70,35 @@ export const resetPassword = createAsyncThunk(
     }
   }
 );
+
+// ✅ Send OTP
+export const sendOtp = createAsyncThunk(
+  "auth/sendOtp",
+  async (email, { rejectWithValue }) => {
+    try {
+      const res = await api.post("/auth/send-otp", { email });
+      console.log("OTP sent successfully:", res.data);
+      return res.data; // Should contain verification ID
+    } catch (err) {
+      console.error("Send OTP error:", err);
+      return rejectWithValue(err.response?.data?.message || "Failed to send OTP");
+    }
+  }
+);
+
+// ✅ Verify OTP
+export const verifyOtp = createAsyncThunk(
+  "auth/verifyOtp",
+  async ({ id, otp }, { rejectWithValue }) => {
+    try {
+      const res = await api.post("/auth/verify-otp", { id, otp });
+      const data = res.data.data;
+      console.log("OTP verification success:", data);
+      localStorage.setItem("jwt", data.jwt);
+      return data;
+    } catch (err) {
+      console.error("OTP verification error:", err);
+      return rejectWithValue(err.response?.data?.message || "OTP verification failed");
+    }
+  }
+);

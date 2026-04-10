@@ -39,7 +39,7 @@ const FeatureComparisonTable = () => {
   // Helper function to render feature availability indicator
   const renderAvailability = (available) => {
     if (available === true) {
-      return <CheckCircle className="w-5 h-5 text-green-500 mx-auto" />;
+      return <CheckCircle className="w-5 h-5 text-primary mx-auto" />;
     } else if (available === false) {
       return <X className="w-5 h-5 text-gray-300 mx-auto" />;
     } else {
