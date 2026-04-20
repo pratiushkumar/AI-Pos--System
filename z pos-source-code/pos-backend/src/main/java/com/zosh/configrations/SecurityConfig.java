@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -39,7 +40,7 @@ public class SecurityConfig {
 						.anyRequest().permitAll())
 			.addFilterBefore(new JwtValidator(), BasicAuthenticationFilter.class)
 			.csrf(AbstractHttpConfigurer::disable)
-			.cors(cors -> cors.configurationSource(corsConfigurationSource()))
+			.cors(AbstractHttpConfigurer::disable)
 			.oauth2Login(oauth2 -> oauth2.successHandler(oAuth2LoginSuccessHandler))
 			.exceptionHandling(
 					exceptionHandler -> exceptionHandler
@@ -53,18 +54,17 @@ public class SecurityConfig {
 	}
 
 	@Bean
-	public CorsConfigurationSource corsConfigurationSource() {
-		CorsConfiguration cfg = new CorsConfiguration();
-		cfg.setAllowedOriginPatterns(Collections.singletonList("*"));
-		cfg.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
-		cfg.setAllowCredentials(true);
-		cfg.setAllowedHeaders(Collections.singletonList("*"));
-		cfg.setExposedHeaders(Collections.singletonList("*"));
-		cfg.setMaxAge(3600L);
-
+	public FilterRegistrationBean<org.springframework.web.filter.CorsFilter> corsFilter() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", cfg);
-		return source;
+		CorsConfiguration config = new CorsConfiguration();
+		config.setAllowCredentials(true);
+		config.addAllowedOriginPattern("*");
+		config.addAllowedHeader("*");
+		config.addAllowedMethod("*");
+		source.registerCorsConfiguration("/**", config);
+		FilterRegistrationBean<org.springframework.web.filter.CorsFilter> bean = new FilterRegistrationBean<>(new org.springframework.web.filter.CorsFilter(source));
+		bean.setOrder(org.springframework.core.Ordered.HIGHEST_PRECEDENCE);
+		return bean;
 	}
 
 }

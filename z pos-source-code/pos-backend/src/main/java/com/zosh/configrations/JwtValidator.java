@@ -24,6 +24,13 @@ public class JwtValidator extends OncePerRequestFilter {
 	protected void doFilterInternal(@org.springframework.lang.NonNull HttpServletRequest request, 
 									@org.springframework.lang.NonNull HttpServletResponse response,
 									@org.springframework.lang.NonNull FilterChain filterChain) throws ServletException, IOException {
+		
+		if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+			response.setStatus(HttpServletResponse.SC_OK);
+			filterChain.doFilter(request, response);
+			return;
+		}
+
 		String jwt = request.getHeader(JwtConstant.JWT_HEADER);
 		if(jwt!=null){
 			jwt=jwt.substring(7);
