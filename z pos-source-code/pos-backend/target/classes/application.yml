@@ -65,7 +65,7 @@ cashfree:
 
 app:
   frontend:
-    reset-url: http://localhost:5173/auth/reset-password?token=
+    reset-url: https://ai-pos-system.vercel.app/auth/reset-password?token=
 
 logging:
   level:

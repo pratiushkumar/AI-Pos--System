@@ -62,7 +62,8 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
 
         String jwt = jwtProvider.generateToken(authToken);
 
-        // Redirect to Frontend
-        response.sendRedirect("http://localhost:5173/auth/oauth-success?token=" + jwt);
+        // Redirect to Frontend (Production)
+        String frontendUrl = "https://ai-pos-system.vercel.app";
+        response.sendRedirect(frontendUrl + "/auth/oauth-success?token=" + jwt);
     }
 }
